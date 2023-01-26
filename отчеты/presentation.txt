@@ -1,0 +1,81 @@
+Hello, my name is Dana Zhetesova. Today I will present my work in studying micro RNA and matrix RNA expression in fiber formation in flax, which I did with my supervisor - Aleksandr Tkachenko.
+
+------------------------------------------
+
+Flax is a widely used industrial agriculture mainly because of phloem fibers. Our attention is was drawn to the poorly studied process of a intrusive elongation, a key stage in fiber development. A comparison of the expression between phloem fibers at different developmental stages, and parenchyma and xylem tissues is characterizing for pathways of processes in this stage.
+
+------------------------------------------
+
+In the beginning there was provided RNA high-throughput sequencing from different cell types in different plant tissues during different developmental stages.
+
+------------------------------------------
+
+My work is an extension of already published work and some unpublished parts. 
+
+In the article the RNA-seq and miRNA-seq Data Analysis, Differential Expression Analysis and Hierarchical Clustering of Samples and miRNAs were done. Also, Flax miRNA Targets were Computationally Predicted using psRNATarget.
+
+In not published was done the following. My supervisor gave me miRNA target predictions from carringtonlab/TargetFinder and correlation of expression of clustered mRNA and micro RNA. Also, I was provided with the initial expression data with samples and annotations.
+
+Here we see a correlation heatmap between micro RNA and their regulated mRNA clusters.
+
+------------------------------------------
+
+The main aim is in attempt to study something new in process of flax phloem phiber intrusive elongation and how micro RNA manages it.
+
+Particular tasks are:
+Study existing results and methods
+Check results of the prediction of downregulated target genes for micro RNA using correlation (targetFinder /vs/ correlation: does mRNA match?)
+Phylogenetic analysis of micro RNA (new -> to existing families)
+Perform pathway analysis for micro RNA (does miRNA participate in cell wall elongation pathway?)
+
+------------------------------------------
+
+Almost all project was done in R script using libraries these libraries and some methods. As results I received plots and tables of data, which I tried to analyse and make some conclusions.
+
+------------------------------------------
+
+Let me remind you, we had a correlation heatmap between micro RNA and their regulated mRNA clusters.
+
+TargetFinder results almost didn’t match with this correlation. I used only statistically significant down-regulated clusters. There were not many matches, so I reduced correlated pairs to only those mRNA which were predicted by TargetFinder.
+On the first picture you can see counts of intersections by micro RNAs colored with jaccard intersection index. On the second picture it is just jaccard index.
+There were 110 micro RNA and only 22 of them had not zero but close to it intersections and quite low jaccard index.
+This means that using only set of probable to predict mRNA TargetFinder didn’t predict almost anything what was sequenced and correlated from the experiment.
+
+TargetFinder use complimentary for its’ predictions, and in the article which was published 05 January 2023 in Nature Chemistry by Maxim P. Nikitin it was said that micro RNA can regulate non-complimentary genes. May be this is why complimentary predictions didn’t match expected correlation.
+
+------------------------------------------
+
+I have created phylogenetic tree of sequenced miRNA and divided it on modules using gene families. As you can see, new micro RNA (red labels) are distributed among gene families. I have checked pairs with the least distance between them (tree was computed using bionjs algorythm), and I suspect them as duplicates of existing micro RNA (you can see them as 5 pairs in the table).
+
+Other ones have a potential to be not duplicates but in family of existing micro RNA. Also, they are not annotated for model organism, so they might be flax specific micro RNA.
+
+There are 23 families, and there are new scaffolds in almost all of them.
+
+------------------------------------------
+
+Using top statistically significant downregulated clusters of matrix RNA.
+From them I got about top ~200 genes by Median Absolute Deviation (It was necessary because results were more exact results and narrow processes).
+I mapped them to Entrez gene accession number and used them for pathway analysis based on Arabidopsis pathway processes with g Profiler.
+
+Scaffolds are quite distant on phylogenetic tree from these micro RNAs and belong to different families.
+That means they are new members of the same pathway as these families.
+
+------------------------------------------
+
+Here are pathways for red cluster and it is directly regulating development of xylem or phloem tissue development, especially cytoskeleton, probably during cell differentiation cycle. 
+
+------------------------------------------
+
+On the left picture we see kinesins walking along microtubule to the apoplast with cortical microtubules which is main cell wall molecule, and it plays essential roles in determining cell shape and function.
+And on the right picture we see how microtubules affect the direction of cell wall growth.
+
+------------------------------------------
+
+To conclude my work I will say.
+I have checked whether predicted targets for micro RNA by complementarity are true and it appears that they aren’t.
+I have provided micro RNA phylogenetic analysis and put new microRNAs into existing gene families and suspected some of them to be repeats of existing micro RNA.
+I did the Pathway analysis and now we can propose that some of microRNAs are participating in interesting inner cellular processes, and some of them are directly related to intrusive cell walls elongation.
+
+------------------------------------------
+
+Thank you for your time!
